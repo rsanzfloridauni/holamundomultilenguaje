@@ -38,7 +38,7 @@ jobs:
         php-version: '8.3' 
 
     - name: Install dependencies
-      run: composer install # Instala las dependencias de producción
+      run: composer install 
 
     - name: Deploy to server
       env:
@@ -55,7 +55,7 @@ jobs:
         ssh -o StrictHostKeyChecking=no $USERNAME@$HOST "mkdir -p $DEPLOY_PATH"
 
         # Sync the application files to the server
-        rsync -avz --delete --exclude 'vendor' --exclude '.git' . $USERNAME@$HOST:$DEPLOY_PATH
+        rsync -avz --delete --no-t --exclude 'vendor' --exclude-from='.rsyncignore' --exclude '.git' . $USERNAME@$HOST:$DEPLOY_PATH
 
         # Optionally, run Composer install on the server
         ssh -o StrictHostKeyChecking=no $USERNAME@$HOST "cd $DEPLOY_PATH && composer install --no-dev --optimize-autoloader"
