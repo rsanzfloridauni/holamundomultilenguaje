@@ -52,7 +52,7 @@ jobs:
         ssh -o StrictHostKeyChecking=no $USERNAME@$HOST "mkdir -p $DEPLOY_PATH"
 
         # Sync the application files to the server
-        rsync -avz --delete --no-t --exclude 'vendor' --exclude '.git' . $USERNAME@$HOST:$DEPLOY_PATH
+        rsync -avz --delete --no-t --exclude 'tests' --exclude '.git' . $USERNAME@$HOST:$DEPLOY_PATH
 
         # Optionally, run Composer install on the server
         ssh -o StrictHostKeyChecking=no $USERNAME@$HOST "cd $DEPLOY_PATH && composer install --no-dev --optimize-autoloader"
