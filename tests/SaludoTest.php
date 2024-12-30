@@ -14,7 +14,7 @@ class SaludoTest extends TestCase
         $this->assertIsString($resultado['saludo']);
         
         // Verifica que el resultado contiene un saludo válido
-        $this->assertEmpty($resultado['saludo']);
+        $this->assertNotEmpty($resultado['saludo']);
         
         // Verifica que el código también es un string
         $this->assertIsString($resultado['codigo']);
