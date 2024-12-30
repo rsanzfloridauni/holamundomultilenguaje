@@ -7,7 +7,7 @@ $mensaje = '';
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $resultado = $saludo->generarSaludoAleatorio();
-    $mensaje = $resultado['saludo’];
+    $mensaje = $resultado['saludo'];
     $codigo = $resultado['codigo'];
 }
 ?>
@@ -28,7 +28,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 </head>
 <body>
     <div class="container">
-        <h1>Generador aleatorio de Hola Mundos</h1>
+        <h1>Generador aleatorio de Hola Mundo</h1>
         <form method="post">
             <button type="submit">Generar</button>
         </form>
